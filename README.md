@@ -1,6 +1,8 @@
-# syntastic-local-eslint.vim
+# neomake-local-eslint.vim
 
-Prefer local repo install of eslint over global install with syntastic
+Prefer local repo install of eslint over global install with neomake
+
+Thanks to @mtscout6 for the syntastic version as inspiration!
 
 Installation Instructions
 -------------------------
@@ -8,7 +10,7 @@ Installation Instructions
 Using [vim plugged](https://github.com/junegunn/vim-plug) you just need to add:
 
 ```
-Plug 'pmsorhaindo/syntastic-local-eslint.vim'
+Plug 'benjie/neomake-local-eslint.vim'
 ```
 
 Inspired By
