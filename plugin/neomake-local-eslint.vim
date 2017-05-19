@@ -26,7 +26,7 @@ function! GetNpmBin(binname)
   if empty(binpath)
     let binpath = system('echo -n $(npm bin)') . '/' . a:binname
     if v:shell_error == 0
-      let binpath = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+      let binpath = substitute(binpath, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
     endif
     if ! filereadable(binpath)
       let binpath = ''
