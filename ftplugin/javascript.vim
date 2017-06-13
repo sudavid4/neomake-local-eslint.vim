@@ -1,5 +1,4 @@
 function! LocalEslint(dirname)
-    echom a:dirname
     if exists('b:neomake_javascript_eslint_exe')
         return
     endif
