@@ -1,5 +1,5 @@
 function! CreateTernProjectIfNeeded(dir)
-    call system('echo -e ''{\n'.
+    call system('[ ! -f '.a:dir.'/.tern-project ] && echo -e ''{\n'.
                 \'  "ecmaVersion": 6,\n'.
                 \'  "libs": [\n'.
                 \'      "browser",\n'.
@@ -15,7 +15,7 @@ function! CreateTernProjectIfNeeded(dir)
                 \'      "fullDocs": true\n'.
                 \'    }\n'.
                 \'  }\n'.
-                \'}\n'' > .tern-project')
+                \'}\n'' > '.a:dir.'/.tern-project')
 endfunction
 function! LocalEslint(dirname)
     if exists('b:neomake_javascript_eslint_exe')
@@ -37,6 +37,7 @@ function! LocalEslint(dirname)
     endif
 endfunction
 call LocalEslint(expand('%:p:h'))
+" probably useless
 if !exists('b:neomake_javascript_eslint_exe')
     let g:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
     let b:neomake_javascript_eslint_exe = substitute(g:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
