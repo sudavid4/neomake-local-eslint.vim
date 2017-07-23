@@ -27,6 +27,7 @@ function! LocalEslint(dirname)
     let l:eslintFile = a:dirname . '/node_modules/.bin/eslint'
     if filereadable(l:eslintFile) 
         let b:neomake_javascript_eslint_exe = l:eslintFile
+        let b:neomake_javascript_fixlint_exe = l:eslintFile
         " call CreateTernProjectIfNeeded(a:dirname)
     else
         " walk to the top of the dir tree
